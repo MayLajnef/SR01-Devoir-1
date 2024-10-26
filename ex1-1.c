@@ -20,5 +20,5 @@ int main() {
     int notB = !B; // notB = !5 = 0
     int C = !--A/ ++notB; // C = !19 / ++0 = 0/1 = 0
     printf (" A=% d B=% d C=%d \n", A, B, C);
-    return 0;
+    return 0; 
 }
