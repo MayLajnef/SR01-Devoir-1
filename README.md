@@ -29,7 +29,7 @@ NB : Attention à l'ordre de priorité des opérateurs.
   - Recherche de restaurants basés sur la position et spécialité.
  
 ### Rapport :
-Un rapport au format pdf détaillant les résultats, la logique des raisonnements, les fonctions de service ajoutées, l'objectif de chaque fonction et les modifications éventuelles apportées aux prototypes ou aux structures.
+Un rapport au format pdf détaillant les résultats, la logique des raisonnements, les fonctions de service ajoutées, l'objectif de chaque fonction et les modifications éventuelles apportées aux prototypes de fonctions ou aux structures.
 
 NB : Inclure pour chaque question des captures d'écran des codes et des tests correspondants.
 
