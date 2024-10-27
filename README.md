@@ -1,11 +1,12 @@
-# Devoir 1
+#  SR01 - Devoir 1
 
-
+[Consulter le sujet du devoir 1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/6454182/cd6f0393-55d7-4e8e-b52f-b9661fa9f21c/Sujet-Devoir-1-SR01-2024.pdf)
 
 ## Membres du groupe :
 - Sofia Dulac-Belesgaa
 - May Lajnef
-
+  
+[Espace Moodle Rendu Devoir 1 (Groupe TD 2 Lundi 16h30)](https://moodle.utc.fr/mod/assign/view.php?id=98739)
 
 ## Description du devoir
 
