@@ -1,12 +1,22 @@
 #  SR01 - Devoir 1
 
-[Consulter le sujet du devoir 1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/6454182/cd6f0393-55d7-4e8e-b52f-b9661fa9f21c/Sujet-Devoir-1-SR01-2024.pdf)
+[Consulter le sujet du devoir 1](https://moodle.utc.fr/mod/resource/view.php?id=173714)
 
-## Membres du groupe :
+
+## Rendu : 
+Le devoir peut se faire en binôme. Les deux étudiants formant un binôme
+doivent appartenir au même groupe de TD.
+Les différents binômes devront remettre un seul fichier *.zip contenant les codes
+sources ainsi qu’un rapport électronique (pdf) de quelques pages.
+
+**Deadline : 4 novembre 2024**
+
+[Espace Moodle Rendu Devoir 1 (Groupe TD n°2 Lundi 16h30)](https://moodle.utc.fr/mod/assign/view.php?id=98739)
+
+
+## Membres du binôme :
 - Sofia Dulac-Belesgaa
 - May Lajnef
-  
-[Espace Moodle Rendu Devoir 1 (Groupe TD 2 Lundi 16h30)](https://moodle.utc.fr/mod/assign/view.php?id=98739)
 
 ## Description du devoir
 
