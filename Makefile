@@ -27,3 +27,10 @@ run3: ex3
 # Nettoyage des fichiers générés
 clean:
 	rm -f $(TARGETS) *.o
+
+
+# Commandes utilisables dans le terminal (ex: WSL(Ubuntu) sur VS Code)
+# Compiler tous les exercices : make
+# Exécuter l'exercice 2 : make run2
+# Exécuter l'exercice 3 : make run3
+# Nettoyer les fichiers générés : make clean
