@@ -4,8 +4,10 @@
 
 void lire_notes(int N, int POINTS[]) {
     for (int i = 0; i < N; i++) {
-        printf("Entrez la note de l'étudiant %d : ", i + 1);
-        scanf("%d", POINTS + i);
+        do {
+            printf("Entrez la note de l'étudiant %d : ", i + 1);
+            scanf("%d", POINTS + i);
+        } while (POINTS[i] < 0 || POINTS[i] > 60);
     }
 }
 
