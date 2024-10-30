@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+// Question 1
 void lire_notes(int N, int POINTS[]) {
     for (int i = 0; i < N; i++) {
         do {
@@ -11,6 +11,7 @@ void lire_notes(int N, int POINTS[]) {
     }
 }
 
+// Question 2
 int note_max(int N, int POINTS[]) {
     int max = POINTS[0];
     for (int i = 1; i < N; i++) {
@@ -39,7 +40,18 @@ float moyenne_notes(int N, int POINTS[]) {
     return moyenne;
 }
 
-
+// Question 3
+void remplir_notes(int N, int POINTS[], int NOTES[]) {
+    for (int i = 0; i < N; i++) {
+        if (POINTS[i] >= 60) NOTES[6]++;
+        else if (POINTS[i] >= 50) NOTES[5]++;
+        else if (POINTS[i] >= 40) NOTES[4]++;
+        else if (POINTS[i] >= 30) NOTES[3]++;
+        else if (POINTS[i] >= 20) NOTES[2]++;
+        else if (POINTS[i] >= 10) NOTES[1]++;
+        else NOTES[0]++;
+    }
+}
 
 int main(int argc, char* argv[]) {
     int N;
@@ -51,10 +63,15 @@ int main(int argc, char* argv[]) {
     for (int i=0; i < N; i++) {
         printf("POINTS[%d] = %d\n", i, POINTS[i]);
     }
-
+    
     printf("La note maximale du devoir SR01 est de %d.\n", note_max(N, POINTS));
     printf("La note minimale du devoir SR01 est de %d.\n", note_min(N, POINTS));
     printf("La moyenne des notes du devoir SR01 est de %.2f.\n", moyenne_notes(N, POINTS));
-
+    
+    int NOTES[7] = {};
+    remplir_notes(N, POINTS, NOTES);
+    for (int i=0; i < 7; i++) {
+        printf("NOTES[%d] = %d\n", i, NOTES[i]);
+    }
     return 0;
 }
