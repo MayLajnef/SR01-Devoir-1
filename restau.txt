@@ -1,0 +1,11 @@
+Edern; 6, rue Arsène Houssaye - Paris 8ème; (x=1.5, y=44.8); {Cuisine gastronomique}
+La Farnesina; 9, rue Boissy d'Anglas - Paris 8ème; (x=70.5, y=74.12578); {Cuisine italienne}
+41 Penthièvre; 41 Penthièvre 41, rue de Penthièvre - Paris 8ème; (x=40.5, y=77.12578); {Cuisine traditionnelle française}
+6 New York; 6, avenue de New York - Paris 16ème; (x=12.5, y=74.12578); {Cuisine gastronomique}
+African Lounge; 20 bis, rue Jean Giraudoux - Paris 16ème; (x=18.5, y=7.578); {Cuisine africaine}
+Le 122; 122, rue de Grenelle - Paris 7ème; (x=48.8571, y=2.31925); {Cuisine gastronomique}
+Le 404; 69, rue des Gravilliers - Paris 3ème; (x=48.8645, y=2.3542); {Cuisine marocaine}
+Le 41 Pasteur; 41, boulevard Pasteur - Paris 15ème; (x=48.8426, y=2.313269); {Bistrot}
+Belle Armée; 3, avenue de la Grande Armée - Paris 16ème; (x=2.5, y=12.578); {Brasserie}
+Benkay; 61, quai de Grenelle - Paris 15ème; (x=142.5, y=7.1); {Cuisine japonaise}
+Agapé; 51, rue Jouffroy d'Abbans - Paris 17ème; (x=128.5, y=200.178); {Haute cuisine française}
