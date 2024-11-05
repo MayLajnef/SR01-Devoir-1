@@ -12,17 +12,22 @@ int lire_restaurant(char *chemin, Restaurant restaurants[]) {
     FILE *file = fopen(chemin, "r");
     if (file == NULL) {
         perror("Erreur d'ouverture du fichier");
-        return 1;
+        return 0;  
     }
     // Initialisation du compteur
     int i = 0;
-    while (fscanf(file, "%s %s %lf %lf %s",
-                  restaurants[i].nom_restaurant, restaurants[i].adresse_restaurant, &restaurants[i].position_restaurant.x,
-                  &restaurants[i].position_restaurant.y, restaurants[i].specialite) == 5) {
+    char ligne[500];  
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {  
+        // Lecture ligne par ligne avec sscanf
+        sscanf(ligne, "%[^;]; %[^;]; (x=%lf, y=%lf); {%[^}]}", 
+               restaurants[i].nom_restaurant, 
+               restaurants[i].adresse_restaurant, 
+               &restaurants[i].position_restaurant.x, 
+               &restaurants[i].position_restaurant.y, 
+               restaurants[i].specialite);
         i++;
-        if (i >= MAX_RESTAURANTS) break;
+        if (i >= MAX_RESTAURANTS) break;  
     }
-
     fclose(file);
     return i;  // Retourne le nombre de restaurants lus
 }
@@ -34,8 +39,9 @@ void inserer_restaurant(Restaurant restaurant) {
         perror("Erreur d'ouverture du fichier");
         return;
     }
+    
 
-    fprintf(file, "%s %s %lf %lf %s\n", restaurant.nom_restaurant, restaurant.adresse_restaurant,
+    fprintf(file, "%s; %s;(x=%.2lf, y=%.2lf); {%s}\n", restaurant.nom_restaurant, restaurant.adresse_restaurant,
             restaurant.position_restaurant.x, restaurant.position_restaurant.y, restaurant.specialite);
     fclose(file);
 }
@@ -104,11 +110,14 @@ int main(int argc, char* argv[]) {
             case 1:
                 printf("\n-----------Affichage des restaurants-----------\n");
                 for (int i = 0; i < n; i++) {
+                    printf("Restaurant n°%d\n", i+1);
                     printf("Nom: %s \nAdresse: %s \nPosition: (%.2lf, %.2lf) \nSpécialité: %s\n",
                            restaurants[i].nom_restaurant, restaurants[i].adresse_restaurant,
                            restaurants[i].position_restaurant.x, restaurants[i].position_restaurant.y,
                            restaurants[i].specialite);
+                    printf("---------------------------------------------------\n\n");
                 }
+                printf("\nNombre de restaurants lus à partir du fichier : %d.\n", n);
                 break;
 
             case 2: {
