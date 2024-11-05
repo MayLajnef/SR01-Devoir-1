@@ -130,6 +130,7 @@ void affichage_NOTES_points(int *notes)
     printf("| %d  |\n", (NB_TRANCHES-1)*10);        // 60 est un peu particulier donc on le met en dehors de la boucle
 }
 
+// Question 5
 void affichage_NOTES_batons(int *notes) {
     printf("\n       Graphique en bâtons représentant les notes\n\n");
     const int MAXN = max(NB_TRANCHES, notes); // Nombre maximal de notes dans n'importe laquelle des tranches
