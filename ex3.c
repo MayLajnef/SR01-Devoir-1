@@ -152,6 +152,7 @@ int main(int argc, char* argv[]) {
             break;
 
             case 3:
+                fflush(stdin);
                 printf("Position actuelle (x y) : "); scanf("%lf %lf", &x, &y);
                 printf("Rayon de recherche : "); scanf("%lf", &rayon);
                 cherche_restaurant(x, y, rayon, restaurants, n, results, &n_results);
@@ -165,6 +166,7 @@ int main(int argc, char* argv[]) {
                 break;
 
             case 4:
+                fflush(stdin);
                 printf("Position actuelle (x y) : "); scanf("%lf %lf", &x, &y);
                 printf("Spécialité recherchée : "); scanf("%s", specialite);
                 cherche_par_specialite(x, y, specialite, restaurants, n, results, &n_results);
