@@ -145,7 +145,7 @@ void affichage_NOTES_batons(int *notes) {
         }
         else    // Si on est pas à la ligne 0 on affiche normalement
         {
-            printf("%d >", i);      // On affiche le numéro de l'étage de manière jolie
+            printf("%d >", i);     // On affiche le numéro de la ligne
             for (int j = 0; j < NB_TRANCHES ; j++)   // Pour chaque tranche de notes, on affiche un bâton de hauteur égale au nombre de notes pour cette tranche
             {
                 if (notes[j] >= i && notes[j] != 0) // Si le nombre de notes de la jème tranche est non nul et supérieur à i,  j'affiche un ##### à la ligne i, sinon on affiche des espaces
