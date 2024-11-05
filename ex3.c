@@ -3,25 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
-#define MAX_RESTAURANTS 100
-#define FILE_NAME "restau.txt"
-
-// Structure pour représenter une position
-typedef struct Position
-{
-    double x;
-    double y;
-}Position;
-
-
-// Structure pour représenter un restaurant
-typedef struct Restaurant {
-    char nom_restaurant[50];
-    char adresse_restaurant[100];
-    Position position_restaurant; // Position du restaurant
-    char specialite[50];   // Spécialité du restaurant
-} Restaurant;
+#include "ex3.h"
 
 // Fonction pour lire les restaurants depuis un fichier
 int lire_restaurant(char *chemin, Restaurant restaurants[]) {
