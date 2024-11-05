@@ -4,9 +4,6 @@
 #include <math.h>
 #include "ex3.h"
 
-#define MAX_RESTAURANTS 100
-#define FILE_NAME "restau.txt"
-
 // Fonction pour lire les restaurants depuis un fichier
 int lire_restaurant(char *chemin, Restaurant restaurants[]) {
     FILE *file = fopen(chemin, "r");
@@ -108,7 +105,7 @@ int main(int argc, char* argv[]) {
 
         switch (choix) {
             case 1:
-                printf("\n-----------Affichage des restaurants-----------\n");
+                printf("\n-----------Affichage des restaurants-----------\n\n");
                 for (int i = 0; i < n; i++) {
                     printf("Restaurant n°%d\n", i+1);
                     printf("Nom: %s \nAdresse: %s \nPosition: (%.2lf, %.2lf) \nSpécialité: %s\n",

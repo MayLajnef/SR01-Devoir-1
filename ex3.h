@@ -1,6 +1,7 @@
 #ifndef EX3_H_
 #define EX3_H_
 
+// Constantes symboliques
 #define MAX_RESTAURANTS 100
 #define FILE_NAME "restau.txt"
 
