@@ -6,7 +6,7 @@
 void lire_notes(int N, int POINTS[]) {
     if (N<=0)
     {
-        printf("Erreur d'entree !\n");
+        printf("Erreur d'entrée !\n");
         return;
     }
     int note;
@@ -15,7 +15,7 @@ void lire_notes(int N, int POINTS[]) {
         printf("Donner la note de l'etudiant %d: ", i+1);
         if ((scanf("%d", &note) != 1) || note < 0 || note > 60)
         {
-            printf("Il faut entrer une note valide (entier positif inferieur a 60) !\n");
+            printf("Il faut entrer une note valide (entier positif inférieur à 60) !\n");
             i--;
         } else {
             note = (int)note;
@@ -27,10 +27,10 @@ void lire_notes(int N, int POINTS[]) {
 
 // Question 2
 int max(int N, int tab[]) {
-    if (N<=0)
+    if (!tab || N<=0)
     {
         printf("Erreur d'entree !\n");
-        return -1;
+        return 1;
     }
     int max = tab[0];
     for (int i = 1; i < N; i++) {
@@ -41,9 +41,9 @@ int max(int N, int tab[]) {
 }
 
 int note_min(int N, int POINTS[]) {
-    if (N<=0)
+    if (!POINTS || N<=0)
     {
-        printf("Erreur d'entree !\n");
+        printf("Erreur d'entrée !\n");
         return -1;
     }
     int min = POINTS[0];
@@ -55,10 +55,10 @@ int note_min(int N, int POINTS[]) {
 }
 
 float moyenne_notes(int N, int POINTS[]) {
-    if (N<=0)
+    if (!POINTS || N<=0)
     {
-        printf("Erreur d'entree !\n");
-        return -1;
+        printf("Erreur d'entrée !\n");
+        return 1;
     }
     int somme = 0;
     float moyenne;
@@ -77,9 +77,9 @@ void affiche_statistiques(int N, int POINTS[]) {
 
 // Question 3
 void remplir_notes(int N, int POINTS[], int NOTES[]) {
-    if (N<=0)
+    if (!POINTS || N<=0)
     {
-        printf("Erreur d'entree !\n");
+        printf("Erreur d'entrée !\n");
         return;
     }
     for (int i = 0; i < N; i++) {
@@ -96,6 +96,10 @@ void remplir_notes(int N, int POINTS[], int NOTES[]) {
 // Question 4
 void affichage_NOTES_points(int *notes)
 {
+    if (!notes) {
+        printf("Le tableau des tranches de notes est vide !\n");
+        return;
+    }
     printf("\n       Graphique en nuage de points représentant les notes\n\n");
     const int MAXN = max(NB_TRANCHES, notes); // Nombre maximal de notes dans n'importe laquelle des tranches
     for (int i = MAXN; i >= 0; i--)  // Il y a autant de lignes que le nombre maximal de notes dans une des tranches
@@ -131,6 +135,10 @@ void affichage_NOTES_points(int *notes)
 }
 
 void affichage_NOTES_batons(int *notes) {
+    if (!notes) {
+        printf("Le tableau des tranches de notes est vide !\n");
+        return;
+    }
     printf("\n       Graphique en bâtons représentant les notes\n\n");
     const int MAXN = max(NB_TRANCHES, notes); // Nombre maximal de notes dans n'importe laquelle des tranches
     for (int i = MAXN; i >= 0; i--)  // Il y a autant de lignes que le nombre maximal de notes dans une des tranches
@@ -164,26 +172,94 @@ void affichage_NOTES_batons(int *notes) {
 }
 
 int main(int argc, char* argv[]) {
-    int N;
-    printf("Entrez le nombre d'étudiants : ");
-    scanf("%d", &N);
-    int POINTS[N];
-    lire_notes(N, POINTS);
-    
-    for (int i=0; i < N; i++) {
-        printf("POINTS[%d] = %d\n", i, POINTS[i]);
-    }
-    
-    affiche_statistiques(N, POINTS);
-    
-    int NOTES[NB_TRANCHES] = {};
-    remplir_notes(N, POINTS, NOTES);
-    for (int i=0; i < NB_TRANCHES; i++) {
-        printf("NOTES[%d] = %d\n", i, NOTES[i]);
-    }
+    int N = 0, choix;
+    int* NOTES = NULL;
+    int* POINTS = NULL;
+    do {
+        printf("\n\nMenu: \n");
+        printf("1. Lire les notes des étudiants, et les afficher \n");
+        printf("2. Afficher la note maximale, la note minimale et la moyenne des notes des étudiants \n");
+        printf("3. Afficher les tranches de notes \n");
+        printf("4. Générer le graphique en nuage de points représentant les notes\n");
+        printf("5. Générer le graphique en bâtons représentant les notes\n");
+        printf("0. Quitter\n");
 
-    affichage_NOTES_points(NOTES);
-    affichage_NOTES_batons(NOTES);
+        printf("Quelle option choisissez vous ? ");
+        scanf("%d", &choix);
+        printf("-----------------------------------------------------------------\n");
+
+        switch (choix) 
+        {
+        case 1:
+            // Saisie du nombre d'étudiants
+            int tentative;
+            do {
+                tentative = 0;
+                printf("Entrez le nombre d'étudiants : ");
+                if ((scanf("%d", &N) != 1) || N <= 0) {
+                    printf("\nSaisie invalide ! Le nombre d'étudiants doit être un entier strictement positif. Veuillez réessayer.\n");
+                    tentative++;
+                }
+            } while (tentative != 0);
+            printf("\n");
+
+            // Allocation mémoire dynamique des tableaux POINTS et NOTES
+            POINTS = (int*)malloc(N * sizeof(int));
+            NOTES = (int*)calloc(NB_TRANCHES, sizeof(int));
+            if (!POINTS || !NOTES) {
+                printf("Erreur d'allocation mémoire !\n");
+                free(POINTS);
+                free(NOTES);
+                return 1;
+            }
+
+            lire_notes(N, POINTS);
+
+            printf("\nAffichage des notes :\n");
+            for (int i=0; i < N; i++) {
+                printf("POINTS[%d] = %d\n", i, POINTS[i]);
+            }
+
+            remplir_notes(N, POINTS, NOTES);
+            break;
+        case 2:
+            if (POINTS)
+                affiche_statistiques(N, POINTS);
+            else printf("Veuillez d'abord entrer les notes des étudiants avec l'option 1.\n");
+            break;
+        case 3:
+            if (NOTES) {
+                printf("Affichage des tranches de notes :\n");
+                printf("%d note(s) dans la %dère tranche (allant de %d à %d).\n", NOTES[0], 1, 0, 9);
+                for (int i=1; i < NB_TRANCHES-1; i++) 
+                {
+                    printf("%d note(s) dans la %dème tranche (allant de %d à %d).\n", NOTES[i], i+1, i*10, i*10 + 9);
+                }
+                printf("%d note(s) dans la %dème tranche (celle des notes égales à %d).\n", NOTES[NB_TRANCHES-1], NB_TRANCHES, 10*(NB_TRANCHES-1));
+            }
+            else printf("Veuillez d'abord entrer les notes des étudiants avec l'option 1.\n");
+            break;
+        case 4:
+            if (NOTES)
+                affichage_NOTES_points(NOTES);
+            else printf("Veuillez d'abord entrer les notes des étudiants avec l'option 1.\n");
+            break;
+        case 5:
+            if (NOTES)
+                affichage_NOTES_batons(NOTES);
+            else printf("Veuillez d'abord entrer les notes des étudiants avec l'option 1.\n");
+            break;
+        case 0:
+            printf("Au revoir...\n");
+            break;
+        default:
+            printf("Option saisie invalide. Veuillez entrer un entier dans {0, 1, 2, 3, 4, 5}. Recommencez !\n");
+        }   
+    } while (choix !=0);
+
+    // Libération de la mémoire allouée dynamiquement
+    free(POINTS);
+    free(NOTES);
 
     return 0;
 } 
