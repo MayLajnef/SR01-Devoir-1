@@ -38,7 +38,7 @@ void inserer_restaurant(Restaurant restaurant) {
     }
     
 
-    fprintf(file, "%s; %s;(x=%.2lf, y=%.2lf); {%s}\n", restaurant.nom_restaurant, restaurant.adresse_restaurant,
+    fprintf(file, "%s; %s;(x=%lf, y=%lf); {%s}\n", restaurant.nom_restaurant, restaurant.adresse_restaurant,
             restaurant.position_restaurant.x, restaurant.position_restaurant.y, restaurant.specialite);
     fclose(file);
 }
@@ -117,18 +117,39 @@ int main(int argc, char* argv[]) {
                 printf("\nNombre de restaurants lus à partir du fichier : %d.\n", n);
                 break;
 
-            case 2: {
-                Restaurant r;
-                printf("\n-----------Saisie des informations du nouveau restaurant-----------\n");
-                printf("Nom : "); scanf("%s", r.nom_restaurant);
-                printf("Adresse : "); scanf("%s", r.adresse_restaurant);
-                printf("Position (x y) : "); scanf("%lf %lf", &r.position_restaurant.x, &r.position_restaurant.y);
-                printf("Spécialité : "); scanf("%s", r.specialite);
-                inserer_restaurant(r);
-                restaurants[n++] = r;  // Ajouter au tableau local
-                printf("Restaurant ajouté !\n");
-                break;
-            }
+            case 2: 
+            printf("\n-----------Saisie des informations du nouveau restaurant-----------\n");
+            Restaurant r;
+            while(getchar() != '\n'); // Vider le buffer
+            // Nom du restaurant
+            printf("Nom : ");
+            fgets(r.nom_restaurant, sizeof(r.nom_restaurant), stdin);
+            r.nom_restaurant[strcspn(r.nom_restaurant, "\n")] = 0;  // Supprimer le \n
+            while(getchar() != '\n'); 
+
+            // Adresse du restaurant
+            printf("Adresse : ");
+            fgets(r.adresse_restaurant, sizeof(r.adresse_restaurant), stdin);
+            r.adresse_restaurant[strcspn(r.adresse_restaurant, "\n")] = 0;  
+            while(getchar() != '\n');
+
+            // Position (x, y)
+            printf("Position (x y) : ");
+            scanf("%lf %lf", &r.position_restaurant.x, &r.position_restaurant.y);
+            while(getchar() != '\n');  
+
+            // Spécialité du restaurant
+            printf("Spécialité : ");
+            fgets(r.specialite, sizeof(r.specialite), stdin);
+            r.specialite[strcspn(r.specialite, "\n")] = 0;  
+            while(getchar() != '\n');
+
+            // Ajouter le restaurant
+            inserer_restaurant(r);
+            restaurants[n++] = r;  // Ajouter au tableau local
+
+            printf("Restaurant ajouté !\n");
+            break;
 
             case 3:
                 printf("Position actuelle (x y) : "); scanf("%lf %lf", &x, &y);
