@@ -1,9 +1,11 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include "ex3.h"
+
+#define MAX_RESTAURANTS 100
+#define FILE_NAME "restau.txt"
 
 // Fonction pour lire les restaurants depuis un fichier
 int lire_restaurant(char *chemin, Restaurant restaurants[]) {
@@ -59,7 +61,7 @@ void cherche_restaurant(double x, double y, double rayon_recherche, Restaurant r
 void cherche_par_specialite(double x, double y, char *specialite, Restaurant restaurants[], int n, Restaurant results[], int *n_results) {
     *n_results = 0;
     for (int i = 0; i < n; i++) {
-        if (strcmp(restaurants[i].specialite, specialite) == 0) {
+        if (strcasecmp(restaurants[i].specialite, specialite) == 0) {
             results[*n_results] = restaurants[i];
             (*n_results)++;
         }
@@ -102,7 +104,7 @@ int main(int argc, char* argv[]) {
             case 1:
                 printf("\n-----------Affichage des restaurants-----------\n");
                 for (int i = 0; i < n; i++) {
-                    printf("Nom: %s \n Adresse: %s \nPosition: (%.2lf, %.2lf) \nSpécialité: %s\n",
+                    printf("Nom: %s \nAdresse: %s \nPosition: (%.2lf, %.2lf) \nSpécialité: %s\n",
                            restaurants[i].nom_restaurant, restaurants[i].adresse_restaurant,
                            restaurants[i].position_restaurant.x, restaurants[i].position_restaurant.y,
                            restaurants[i].specialite);
@@ -149,12 +151,12 @@ int main(int argc, char* argv[]) {
                 break;
 
             case 5:
-                printf("Quitter...\n");
+                printf("Au revoir...\n");
                 exit(0);
                 break;
 
             default:
-                printf("Choix invalide.\n");
+                printf("Choix invalide. Veuillez saisir une option parmi 1, 2, 3, 4 ou 5.\n");
         }
     } while (choix != 5);
 
