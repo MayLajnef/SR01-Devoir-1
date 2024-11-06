@@ -174,6 +174,3 @@ void inserer_restaurant(Restaurant restaurant) {
     close(fd);
 }
 ```
-
-### Conclusion
-Ce rapport couvre les explications détaillées pour chaque programme de l’exercice 1, ainsi que l’implémentation des fonctions du fichier restaurant pour l’exercice 3.
