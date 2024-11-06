@@ -1,6 +1,4 @@
-D'accord, voici le rapport entièrement en **Markdown**, formaté pour GitHub avec des sections, sous-sections, des blocs de code en C, des signatures de fonctions en gras, et des explications détaillées :
 
----
 
 # Rapport - Devoir 1 SR01
 
