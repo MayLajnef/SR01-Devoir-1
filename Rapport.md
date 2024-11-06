@@ -2,7 +2,7 @@
 
 # Rapport - Devoir 1 SR01
 
-**Auteurs :** LAJNEF May et DULAC–BELESGAA Sofia
+**Auteurs :** DULAC–BELESGAA Sofia et LAJNEF May 
 
 ## Exercice 1
 
